@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const getUserById = require('./users/getById')
+const getUsers = require('./users/getUsers')
 
 app.set('views', './views')
 
@@ -10,9 +11,9 @@ app.get('/', (req, res) => {
     res.render('index', {title: 'Best website ever', message: 'Welcome!'})
 })
 
-// app.get('/api/users', (req, res) => {
-//     res.status(200).json({users})
-// })
+app.get('/api/users', (req, res) => {
+    res.status(200).json(getUsers())
+})
 
 app.get('/api/users/:id', (req, res) => {
     res.status(200).json(getUserById(req.params.id))
