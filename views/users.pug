@@ -3,8 +3,9 @@ html
     title= title
   body
     h1 All users
-
     ol
-    each elem in usersJson.data
-        li !{elem.name} (ID: !{elem.id})
+        each elem in users 
+            li !{elem.name} (ID: !{elem.id})
+
         
+            
