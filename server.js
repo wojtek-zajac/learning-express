@@ -11,8 +11,12 @@ const data = {
     }
 }
 
+app.set('views', './views')
+
+app.set('view engine', 'pug')
+
 app.get('/', (req, res) => {
-    res.send('Hello world')
+    res.render('index', {title: 'Best website ever', message: 'Welcoome!'})
 })
 
 app.get('/users', (req, res) => {
