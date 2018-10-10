@@ -3,9 +3,10 @@ html
     title= title
   body
     h1 All users
+    p
+      a(href='/') Home Page
     ol
         each elem in users 
-            li !{elem.name} (ID: !{elem.id})
-
-        
-            
+            li 
+              span
+                a(href=`/users/${elem.id}`) !{elem.name}
