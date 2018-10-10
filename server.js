@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const getUserById = require('./users/getById')
 const getUsers = require('./users/getUsers')
+const usersJson = require('./users/users')
 
 app.set('views', './views')
 
@@ -15,6 +16,10 @@ app.get('/api/users', (req, res) => {
     res.status(200).json(getUsers())
 })
 
+app.get('/users', (req, res) => {
+    res.status(200).render('users', {title: 'All users', usersJson})
+})
+
 app.get('/api/users/:id', (req, res) => {
     res.status(200).json(getUserById(req.params.id))
 })
@@ -24,4 +29,4 @@ const server = app.listen(8080, () => {
 })
 
 // GET /users - funkcja get w folderze users zwracająca wszystkich userów
-// dopiesz endpoint GET /users - HTML zawierający listę userów (iteracja w pugu)
+// dopisz endpoint GET /users - HTML zawierający listę userów (iteracja w pugu)
