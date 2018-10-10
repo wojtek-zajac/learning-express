@@ -1,38 +1,34 @@
 const express = require('express')
 const app = express()
-const data = {
-    users: {
-        1: {
-            name: 'Wiktor'
-        },
-        2: {
-            name: 'Wojtek'
-        }
+const users = [
+    {
+        id: 1,
+        name: 'Wojtek'
+    },
+    {
+        id: 2,
+        name: 'Edek'
     }
-}
+]
 
 app.set('views', './views')
 
 app.set('view engine', 'pug')
 
 app.get('/', (req, res) => {
-    res.render('index', {title: 'Best website ever', message: 'Welcoome!'})
+    res.render('index', {title: 'Best website ever', message: 'Welcome!'})
 })
 
 app.get('/users', (req, res) => {
-    res.status(200).json(data)
+    res.status(200).json({users})
 })
 
-app.get('/users/1', (req, res) => {
-    res.status(200).json(data.users['1'].name)
-})
-
-app.get('/users/2', (req, res) => {
-    res.status(200).json(data.users['2'].name)
-})
-
-app.get('/:random/:id', (req, res) => {
-    res.send(`${req.params.random} ${req.params.id}`)
+app.get('/users/:id', (req, res) => {
+    const user = users.filter(user => {
+        return user.id.toString() === req.params.id
+    })
+    res.status(200).json(user)
+    
 })
 
 const server = app.listen(8080, () => {
