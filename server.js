@@ -19,6 +19,14 @@ app.get('/users', (req, res) => {
     res.status(200).json(data)
 })
 
+app.get('/users/1', (req, res) => {
+    res.status(200).json(data.users['1'].name)
+})
+
+app.get('/users/2', (req, res) => {
+    res.status(200).json(data.users['2'].name)
+})
+
 app.get('/:random/:id', (req, res) => {
     res.send(`${req.params.random} ${req.params.id}`)
 })
