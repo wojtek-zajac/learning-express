@@ -1,0 +1,20 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Wojtek"
+        },
+        {
+            "id": 2,
+            "name": "Edek"
+        },
+        {
+            "id": 1,
+            "name": "Brat Edeka"
+        },
+        {
+            "id": 1,
+            "name": "Ciocia Edeka"
+        }
+    ]
+}
