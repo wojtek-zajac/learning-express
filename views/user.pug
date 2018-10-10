@@ -2,16 +2,22 @@ html
   head
     title= name
   body
-    h1 Details about !{users.name}!
-    p
-        a(href='/users') All Users
-    p
+    h1.user-title Details about !{users.name}!
+    .navigation
+      span
         a(href='/') Home Page
-    h2 Phone
-    p !{users.phone}
-    h2 Email
-    p !{users.email}
-    h2 Address
-    p !{users.address}
-    h2 About
-    p !{users.about}
+      span  / 
+      span
+        a(href='/users') All Users
+    .phone
+      h2 Phone
+      p !{users.phone}
+    .email
+      h2 Email
+      p !{users.email}
+    .address
+      h2 Address
+      p !{users.address}
+    .about
+      h2 About
+      p !{users.about}
