@@ -1,13 +1,27 @@
-html
-  head
-    title= title
-  body
-    h1 All users
-    p
-      a(href='/') Home Page
-    ol
-        each elem in users 
-            li 
-              span
-                a(href=`/users/${elem.id}`) !{elem.name}
-    block user
+extends layout/_layout
+
+block content
+  ol.list
+    each elem in users 
+        li 
+          span
+            a(href=`/users/${elem.id}`) !{elem.name}
+  .userDetails
+    unless user
+      p choose user
+    else
+      .header-description
+        h2 Name
+        p !{user.name}
+      .header-description
+        h2 Phone
+        p !{user.phone}
+      .header-description
+        h2 Email
+        p !{user.email}
+      .header-description
+        h2 Address
+        p !{user.address}
+      .header-description
+        h2 About
+        p !{user.about}

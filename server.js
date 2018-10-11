@@ -11,11 +11,11 @@ app.get('/', (req, res) => {
 })
 
 app.get('/users', (req, res) => {
-    res.status(200).render('users', {title: 'All users', users: getUsers()})
+    res.status(200).render('users', {title: 'Users', users: getUsers(), user: getUserById(req.params.id)})
 })
 
 app.get('/users/:id', (req, res) => {
-    res.status(200).render('user', {name: 'User Name',  users: getUsers(), user: getUserById(req.params.id)})
+    res.status(200).render('users', {users: getUsers(), user: getUserById(req.params.id)})
 })
 
 const server = app.listen(8080, () => {
