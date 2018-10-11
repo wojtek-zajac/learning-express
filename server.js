@@ -5,6 +5,7 @@ const getUsers = require('./users/get')
 
 app.set('views', './views')
 app.set('view engine', 'pug')
+app.use('/styles', express.static(__dirname + '/styles'));
 
 app.get('/', (req, res) => {
     res.render('index', {title: 'Best website ever', message: 'Welcome!'})
