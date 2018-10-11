@@ -15,7 +15,7 @@ app.get('/users', (req, res) => {
 })
 
 app.get('/users/:id', (req, res) => {
-    res.status(200).render('user', {name: 'User Name', users: getUserById(req.params.id)})
+    res.status(200).render('user', {name: 'User Name',  users: getUsers(), user: getUserById(req.params.id)})
 })
 
 const server = app.listen(8080, () => {

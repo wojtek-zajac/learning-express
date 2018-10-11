@@ -1,23 +1,17 @@
-html
-  head
-    title= name
-  body
-    h1.user-title Details about !{users.name}!
-    .navigation
-      span
-        a(href='/') Home Page
-      span  / 
-      span
-        a(href='/users') All Users
+extends users
+
+block user
+  .userDetails
     .phone
       h2 Phone
-      p !{users.phone}
+      p !{user.phone}
     .email
       h2 Email
-      p !{users.email}
+      p !{user.email}
     .address
       h2 Address
-      p !{users.address}
+      p !{user.address}
     .about
       h2 About
-      p !{users.about}
+      p !{user.about}
+      
