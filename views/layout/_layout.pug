@@ -11,7 +11,9 @@ html
         button.button Home Page 
       a(href='/users')
         button.button Users
-      a(href='/users/filter/query?active=true')
+      a(href='/users/filter/active?active=true')
         button.button Show only active users
+      a(href='/users/filter/age?age=30')
+        button.button Older than 30
 
     block content
