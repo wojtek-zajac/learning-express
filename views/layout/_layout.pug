@@ -7,17 +7,17 @@ html
     header
       h1 Super App
     nav
-      a(href='/')
+      a(href='/', tabindex= -1)
         button.button Home Page 
-      a(href='/users')
+      a(href='/users', tabindex= -1)
         button.button Users
-      a(href='/users/filter/active?active=true')
+      a(href='/users/filter/active?active=true', tabindex= -1)
         button.button Show only active users
-      a(href='/users/filter/age?age=30')
+      a(href='/users/filter/age?age=30', tabindex= -1)
         button.button Older than 30
-      a(href='/users/filter/gender?gender=female')
+      a(href='/users/filter/gender?gender=female', tabindex= -1)
         button.button Females
-      a(href='/users/filter/gender?gender=male')
+      a(href='/users/filter/gender?gender=male', tabindex= -1)
         button.button Males
 
     block content
