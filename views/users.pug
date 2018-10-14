@@ -8,22 +8,26 @@ block content
             span
               a(href=`/users/${elem.id}`) !{elem.name}
               span  !{elem.isActive}
-    .userDetails
+    .user-details
       unless user
         p choose user
       else
-        .header-description
-          h2 Name
-          p !{user.name}
-        .header-description
-          h2 Phone
-          p !{user.phone}
-        .header-description
-          h2 Email
-          p !{user.email}
-        .header-description
-          h2 Address
-          p !{user.address}
+        .details-avatar
+          .details
+            .header-description
+              h2 Name
+              p !{user.name}
+            .header-description
+              h2 Phone
+              p !{user.phone}
+            .header-description
+              h2 Email
+              p !{user.email}
+            .header-description
+              h2 Address
+              p !{user.address}
+          .avatar
+            img(src= user.picture alt="user avatar")
         .header-description
           h2 About
           p !{user.about}
