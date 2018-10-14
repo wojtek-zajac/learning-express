@@ -7,11 +7,11 @@ html
     header
       h1 Super App
     nav
-      button.button
-        a(href='/') Home Page 
-      button.button
-        a(href='/users') Users
-      button.button
-        a(href='/users/filter/query?active=true') Show only active users
+      a(href='/')
+        button.button Home Page 
+      a(href='/users')
+        button.button Users
+      a(href='/users/filter/query?active=true')
+        button.button Show only active users
 
     block content
