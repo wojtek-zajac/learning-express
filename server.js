@@ -5,6 +5,7 @@ const getUsers = require('./users/get')
 const getUserById = require('./users/getById')
 const getActiveUsers = require('./users/getActive')
 const getUsersByAge = require('./users/getByAge')
+const getUsersByGender = require('./users/getByGender')
 
 app.set('views', './views')
 app.set('view engine', 'pug')
@@ -33,7 +34,13 @@ app.get('/users/filter/active', (req, res) => {
 app.get('/users/filter/age', (req, res) => {
     const usersByAge = getUsersByAge(req.query.age)
     const user = getUserById(req.params.id)
-    res.status(200).render('users', {title: 'Juvenile Users', users: usersByAge, user})
+    res.status(200).render('users', {title: 'Filter by age', users: usersByAge, user})
+})
+
+app.get('/users/filter/gender', (req, res) => {
+    const usersByGender = getUsersByGender(req.query.gender)
+    const user = getUserById(req.params.id)
+    res.status(200).render('users', {title: 'Filter by gender', users: usersByGender, user})
 })
 
 const server = app.listen(8080, () => {
