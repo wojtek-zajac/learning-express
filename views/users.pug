@@ -7,6 +7,7 @@ block content
           li 
             span
               a(href=`/users/${elem.id}`) !{elem.name}
+              span  !{elem.isActive}
     .userDetails
       unless user
         p choose user

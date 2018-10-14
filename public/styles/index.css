@@ -4,8 +4,8 @@ body {
 }
 
 .button {
-    width: 100px;
-    padding: 5px;
+    min-width: 100px;
+    padding: 10px;
     margin: 3px;
     background-color: #dedcdcde;
 }
@@ -28,6 +28,7 @@ body {
 .list {
     background-color: #dedcdcde;
     min-width: 200px;
+    padding-top: 20px;
 }
 
 .userDetails {
