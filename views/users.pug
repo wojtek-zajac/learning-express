@@ -1,8 +1,22 @@
 extends layout/_layout
 
+block filters
+  .filters
+    h2.container-title Filters
+    .filter-buttos
+      a(href='/users/filter/active?active=true', tabindex= -1)
+        button.button.button-filter Active
+      a(href='/users/filter/age?age=30', tabindex= -1)
+        button.button.button-filter Older than 30
+      a(href='/users/filter/gender?gender=female', tabindex= -1)
+        button.button.button-filter Females
+      a(href='/users/filter/gender?gender=male', tabindex= -1)
+        button.button.button-filter Males
+
 block content
   .container
     ol.list
+      h2.container-title #{title}
       each elem in users 
           li 
             span
@@ -17,19 +31,19 @@ block content
         .details-avatar
           .details
             .header-description
-              h2 Name
+              h3 Name
               p !{user.name}
             .header-description
-              h2 Phone
+              h3 Phone
               p !{user.phone}
             .header-description
-              h2 Email
+              h3 Email
               p !{user.email}
             .header-description
-              h2 Address
+              h3 Address
               p !{user.address}
           .avatar
-            img(src= user.picture alt="user avatar")
+            img.fade(src= user.picture alt="user avatar")
         .header-description
-          h2 About
+          h3 About
           p !{user.about}

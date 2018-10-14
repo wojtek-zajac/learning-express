@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/users', (req, res) => {
-    res.status(200).render('users', {title: 'Users', users: getUsers(), user: getUserById(req.params.id)})
+    res.status(200).render('users', {title: 'All users', users: getUsers(), user: getUserById(req.params.id)})
 })
 
 app.get('/users/:id', (req, res) => {
@@ -34,13 +34,13 @@ app.get('/users/filter/active', (req, res) => {
 app.get('/users/filter/age', (req, res) => {
     const usersByAge = getUsersByAge(req.query.age)
     const user = getUserById(req.params.id)
-    res.status(200).render('users', {title: 'Filter by age', users: usersByAge, user})
+    res.status(200).render('users', {title: `Filter by age: above ${req.query.age}`, users: usersByAge, user})
 })
 
 app.get('/users/filter/gender', (req, res) => {
     const usersByGender = getUsersByGender(req.query.gender)
     const user = getUserById(req.params.id)
-    res.status(200).render('users', {title: 'Filter by gender', users: usersByGender, user})
+    res.status(200).render('users', {title: `Filter by gender: ${req.query.gender}`, users: usersByGender, user})
 })
 
 const server = app.listen(8080, () => {
