@@ -4,19 +4,19 @@ block filters
   .filters
     h2.container-title Filters
     .filter-buttos
-      a(href='/users/filter/active?active=true', tabindex= -1)
+      a(href='/users/?active=true', tabindex= -1)
         button.button.button-filter Active
-      a(href='/users/filter/age?age=30', tabindex= -1)
+      a(href='/users/?age=30', tabindex= -1)
         button.button.button-filter Older than 30
-      a(href='/users/filter/gender?gender=female', tabindex= -1)
+      a(href='/users/?gender=female', tabindex= -1)
         button.button.button-filter Females
-      a(href='/users/filter/gender?gender=male', tabindex= -1)
+      a(href='/users/?gender=male', tabindex= -1)
         button.button.button-filter Males
 
 block content
   .container
     ol.list
-      h2.container-title #{title}
+      h2.container-title #{listTitle}
       each elem in users 
           li 
             span
