@@ -14,17 +14,17 @@ app.get('/', (req, res) => {
 })
 
 app.get('/users', (req, res) => {
-    const user = getUserById(req.params.id)
-    const activity = req.query.active
-    const age = req.query.age
-    const gender = req.query.gender
-    const usersBy = getUsersBy(activity, age, gender)
+    const reqQuery = req.query
+    const usersBy = getUsersBy(reqQuery)
 
-    if (activity || age || gender) {
-        res.status(200).render('users', {title: 'Filter Users', listTitle: activity || age || gender, users: usersBy, user})
-    } else {
-        res.status(200).render('users', {title: 'All users', listTitle: 'All Users', users: getUsers(), user})
-    }
+    res.status(200)
+        .render('users', {
+            title: 'Users', 
+            listTitle: 'Users', 
+            users: getUsers(),
+            reqQuery,
+            usersBy
+        })
 })
 
 app.get('/users/:id', (req, res) => {
@@ -35,4 +35,3 @@ app.get('/users/:id', (req, res) => {
 const server = app.listen(8080, () => {
     console.log(`App is running on port ${server.address().port}`)
 })
-
