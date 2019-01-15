@@ -14,16 +14,15 @@ app.get('/', (req, res) => {
 })
 
 app.get('/users', (req, res) => {
-    const reqQuery = req.query
-    const usersBy = getUsersBy(reqQuery)
+    const {query} = req
+    const usersBy = getUsersBy(query)
 
     res.status(200)
         .render('users', {
             title: 'Users', 
             listTitle: 'Users', 
-            users: getUsers(),
-            reqQuery,
-            usersBy
+            users,
+            query
         })
 })
 
